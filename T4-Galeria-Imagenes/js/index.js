@@ -1,14 +1,16 @@
+/* 
+Creamos el atributo src con el valor que nos da el usuario para generar la imagen.
+Creamos seteamos el href de los <a> con el mismo valor ingresado por el usuario.
+Creamos el atributo target con el valor _blank para que abra una nueva pestaña al usar el link */
 
-//Creamos el atributo src con el valor que nos da el usuario para generar la imagen.
-/* let urls = [] */
 const anchors = document.querySelectorAll(".rutas-img")
 const imagenes = document.querySelectorAll('img');
 imagenes.forEach((item, index) => {
     let url = prompt(`Ingresá la URL de la imagen ${index +1}`);
     item.setAttribute('src', url);
-    anchors[index].setAttribute("href",url)
-    anchors[index].setAttribute("target","_blank")
-    
+    anchors[index].setAttribute("href", url)
+    anchors[index].setAttribute("target", "_blank")
+
 });
 
 
@@ -21,8 +23,3 @@ titulo.appendChild(texto);
 contenedor.appendChild(titulo);
 
 
-
-/* links.forEach((anchor,index) => {
-    anchor.setAttribute("src",urls[index])
-    
-}) */
