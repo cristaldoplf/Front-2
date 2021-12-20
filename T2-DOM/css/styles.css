@@ -45,30 +45,3 @@ h1 {
 }
 
 
-*/
-
-
-
-/* el color de fondo */
-.bg-dark{
-  background-color: rgb(39, 39, 39);
-}
-
-/* las modificaciones al titulo 'la familia de los felinos */
-.title-dark{
-  background-color: rgb(19, 19, 19);
-  color: rgb(170, 170, 170);
-  border-color: black;
-}
-
-
-/* las modificaciones a los items */
-.item-dark{
-  background-color: rgb(19, 19, 19);
-  border-color: black;
-}
-
-/* las modificaciones a los textos de los items y los titulos de ellos */
-.text-dark{
-  color: rgb(230, 230, 230);
-}
