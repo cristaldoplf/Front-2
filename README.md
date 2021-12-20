@@ -23,5 +23,5 @@
 
 ## 4- Galeria de imagenes.
 - Manipulamos el DOM agregando imagenes a la pagina en funcion de los links que nos proporciona el usuario
-    - https://cristaldoplf.github.io/Front-2/T3-Atributos-Dinamicos/
+    - https://cristaldoplf.github.io/Front-2/T4-Galeria-Imagenes/
 
