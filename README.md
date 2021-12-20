@@ -16,6 +16,12 @@
     - https://cristaldoplf.github.io/Front-2/T2-DOM/
 
 
-## 2- Manipulacion de atributos, logo de youtube.
+## 3- Manipulacion de atributos, logo de youtube.
 - Manipulando atributos y valores.
     - https://cristaldoplf.github.io/Front-2/T3-Atributos-Dinamicos/
+
+
+    ## 4- Galeria de imagenes.
+- Manipulamos el DOM agregando imagenes a la pagina en funcion de los links que nos proporciona el usuario
+    - https://cristaldoplf.github.io/Front-2/T3-Atributos-Dinamicos/
+
