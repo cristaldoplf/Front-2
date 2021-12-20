@@ -8,9 +8,9 @@
 
 ## 1- Piedra papel o tijeras.
 - Interactuando con el usuario a nivel basico.
-    @ https://cristaldoplf.github.io/Front-2/T1-Piedra-Papel-Tijera/
+    - https://cristaldoplf.github.io/Front-2/T1-Piedra-Papel-Tijera/
 
 
 ## 2- Tema oscuro - Felinos.
 - Manipulando estilos de css mediante el DOM.
-    @ https://cristaldoplf.github.io/Front-2/T2-DOM/
+    - https://cristaldoplf.github.io/Front-2/T2-DOM/
