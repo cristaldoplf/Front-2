@@ -14,3 +14,8 @@
 ## 2- Tema oscuro - Felinos.
 - Manipulando estilos de css mediante el DOM.
     - https://cristaldoplf.github.io/Front-2/T2-DOM/
+
+
+## 2- Manipulacion de atributos, logo de youtube.
+- Manipulando atributos y valores.
+    - https://cristaldoplf.github.io/Front-2/T3-Atributos-Dinamicos/
