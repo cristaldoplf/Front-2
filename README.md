@@ -27,3 +27,8 @@
 ## 5- Creacion de nodos/elementos.
 - Creamos nodos y elementos de forma dinamica e iniciamos con un evento basico.
     - https://cristaldoplf.github.io/Front-2/T5-Felinos-2/
+
+
+## 6- Cronometro.
+- Creamos un conometro con eventos y uso de setInterval, setTimeOut y CLearInterval.
+    - https://cristaldoplf.github.io/Front-2/T6-Cronometro/
