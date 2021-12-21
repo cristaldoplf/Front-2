@@ -6,7 +6,7 @@ Creamos el atributo target con el valor _blank para que abra una nueva pestaña 
 const anchors = document.querySelectorAll(".rutas-img")
 const imagenes = document.querySelectorAll('img');
 imagenes.forEach((item, index) => {
-    let url = prompt(`Ingresá la URL de la imagen ${index +1}`);
+    let url = prompt(`Ingresá la URL de la imagen ${index +1} para poder visualizarla en pantalla.`);
     item.setAttribute('src', url);
     anchors[index].setAttribute("href", url)
     anchors[index].setAttribute("target", "_blank")
