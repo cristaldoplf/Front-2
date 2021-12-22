@@ -37,3 +37,8 @@
 - Trabajo en el cual integramos los conocimientos adquiridos hasta ahora sobre la manipulacion del DOM mediante JS.
 - Capturamos y modificamos nodos, escuchamos diferentes eventos, capturamos datos y luego los rendererizamos y renderizamos cards de forma dinamica, 
     - https://cristaldoplf.github.io/Front-2/T7-Primer-Integrador/
+
+    ## 8- Formularios.
+-  Capturamos datos a traves de un formulario y los transformamos en un objeto literal.
+Limitamos la cantidad de checkboxes que pueden ser seleccionados.
+    - https://cristaldoplf.github.io/Front-2/T8-formularios/
