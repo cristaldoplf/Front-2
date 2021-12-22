@@ -32,3 +32,8 @@
 ## 6- Cronometro.
 - Creamos un conometro con eventos y uso de setInterval, setTimeOut y CLearInterval.
     - https://cristaldoplf.github.io/Front-2/T6-Cronometro/
+
+## 7- Integrador nr 1.
+- Trabajo en el cual integramos los conocimientos adquiridos hasta ahora sobre la manipulacion del DOM mediante JS.
+- Capturamos y modificamos nodos, escuchamos diferentes eventos, capturamos datos y luego los rendererizamos y renderizamos cards de forma dinamica, 
+    - https://cristaldoplf.github.io/Front-2/T7-Primer-Integrador/

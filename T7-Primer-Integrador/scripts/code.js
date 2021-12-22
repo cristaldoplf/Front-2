@@ -1,10 +1,11 @@
-/* --------------------------- NO TOCAR DESDE ACÁ --------------------------- */
+
 let datosPersona = {
   nombre: "",
   edad: 0,
   ciudad: "",
   interesPorJs: "",
 };
+
 
 const listado = [{
     imgUrl: "https://huguidugui.files.wordpress.com/2015/03/html1.png",
@@ -23,47 +24,81 @@ const listado = [{
   },
 ];
 
+/* capturamos nodos del DOM */
 const profileBtn = document.querySelector("#completar-perfil");
 const materiasBtn = document.querySelector("#obtener-materias");
-const verMasBtn = document.querySelector("#ver-mas");
+
 const cambiarTema = document.querySelector('#cambiar-tema');
 
+/* Eventos al clickear los botones */
 profileBtn.addEventListener("click", renderizarDatosUsuario);
 materiasBtn.addEventListener("click", recorrerListadoYRenderizarTarjetas);
 cambiarTema.addEventListener("click", alternarColorTema);
-/* --------------------------- NO TOCAR HASTA ACÁ --------------------------- */
 
+/* Pedimos datos al usuario cuando presiona el boton "completar datos" */
 function obtenerDatosDelUsuario() {
-  /* --------------- PUNTO 1: Escribe tu codigo a partir de aqui --------------- */
- 
 
+  datosPersona.nombre = prompt("Ingresa tu nombre")
+
+  edad = new Date().getFullYear() - prompt("Ingresa el año en que naciste")
+  if (edad < new Date().getFullYear()) {
+    datosPersona.edad = edad
+  }
+
+  datosPersona.ciudad = prompt("Ingresa la ciudad en donde vivis.")
+
+  confirm("Te interesa JavaScript?") ? datosPersona.interesPorJs = "Si" : datosPersona.interesPorJs = "No"
 
 }
 
+/* Renderizamos los datos que pedimos al usuario previamente */
 function renderizarDatosUsuario() {
-  /* ------------------- NO TOCAR NI ELIMINAR ESTA FUNCION. ------------------- */
+
   obtenerDatosDelUsuario();
-  /* --------------- PUNTO 2: Escribe tu codigo a partir de aqui --------------- */
-  
 
+  let spanNombre = document.querySelector("#nombre")
+  let spanEdad = document.querySelector("#edad")
+  let spanCiudad = document.querySelector("#ciudad")
+  let spanJavascript = document.querySelector("#javascript")
+
+  spanNombre.innerText = datosPersona.nombre
+  spanEdad.innerText = datosPersona.edad
+  spanCiudad.innerText = datosPersona.ciudad
+  spanJavascript.innerText = datosPersona.interesPorJs
 
 }
 
-
+/* Renderizar imagenes y remover el evento para que
+no se renderize si seguimos presionando el boton */
 function recorrerListadoYRenderizarTarjetas() {
-  /* ------------------ PUNTO 3: Escribe tu codigo desde aqui ------------------ */
-  
 
+  listado.forEach(elemento => {
+
+    let divFila = document.querySelector("#fila")
+    divFila.innerHTML +=
+      `<div class="caja">
+          <img src=${elemento.imgUrl} alt=${elemento.lenguajes}>
+          <p class="lenguajes">${elemento.lenguajes}</p>
+          <p class="bimestre">${elemento.bimestre}</p>
+      </div>`;
+
+  })
+  materiasBtn.removeEventListener("click", recorrerListadoYRenderizarTarjetas)
 
 }
 
+/* boton cambiar tema */
 function alternarColorTema() {
-  /* --------------------- PUNTO 4: Escribe tu codigo aqui --------------------- */
- 
-  
 
+  const divSitio = document.querySelector("#sitio")
+  divSitio.classList.toggle("dark")
 
 }
 
-/* --------------------- PUNTO 5: Escribe tu codigo aqui --------------------- */
-
+/* Sobre mi (Apreta la F y visualiza el texto) */
+const parrafoOculto = document.querySelector("#sobre-mi")
+window.addEventListener("keypress", function (evento) {
+  if (evento.key == "f" || evento.key == "F") {
+    parrafoOculto.classList.toggle("oculto")
+  }
+})
