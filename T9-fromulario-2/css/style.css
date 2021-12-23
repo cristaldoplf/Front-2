@@ -35,7 +35,7 @@ i {
     border-style: solid;
     border-radius: 50%;
     padding: 5px;
-    margin: 30px 10px;
+    margin: 15px 10px;
     width: 33px;
     height: 33px;
     text-align: center;
@@ -50,7 +50,8 @@ main>div {
 }
 
 h1 {
-    padding-top: 60px;
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
 
 .form-container {
@@ -100,11 +101,11 @@ label {
     font-size: 0.9rem;
 }
 
-input[type="checkbox"]{
+input[type="checkbox"] {
     display: none;
 }
 
-label::before{
+label::before {
     content: "";
     display: block;
     width: 15px;
@@ -116,7 +117,7 @@ label::before{
     bottom: -1px;
 }
 
-input[type="checkbox"]:checked + label::before {
+input[type="checkbox"]:checked+label::before {
     content: "\f00c";
     font-family: "Font Awesome 5 Free";
     font-weight: 900;
@@ -125,14 +126,15 @@ input[type="checkbox"]:checked + label::before {
     color: white;
 }
 
-.botones{
+.botones {
     margin: 40px 0px 60px;
     width: 100%;
     display: flex;
     justify-content: space-between;
 }
 
-.botones input, .botones a{
+.botones input,
+.botones a {
     height: 40px;
     width: 48%;
     border-style: solid;
@@ -144,12 +146,12 @@ input[type="checkbox"]:checked + label::before {
     font-size: 0.8rem;
 }
 
-.botones input{
+.botones input {
     background-color: var(--primary-color);
     color: var(--white);
 }
 
-.botones input:hover{
+.botones input:hover {
     background-color: var(--white);
     color: var(--primary-color);
     transition: linear 0.3s;
@@ -157,11 +159,46 @@ input[type="checkbox"]:checked + label::before {
     border-color: var(--primary-color);
 }
 
-.botones a:hover{
+.botones a:hover {
     background-color: var(--primary-color);
     color: var(--white);
     transition: linear 0.3s;
     cursor: pointer;
 }
 
+@media screen and (max-width:600px) {
+    .form-container {
+        width: 100%;
+        /* background-image: url("../img/Screenshot_3.jpg");
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center; */
+    }
 
+    .imagen-bg {
+        width: 0%;
+    }
+
+    h1 {
+        background-image: url("../img/Screenshot_3.jpg");
+        width: 100%;
+        -webkit-text-stroke: 1px var(--white); /* width and color */
+        color: black; 
+        font-size: 2.1rem;
+    }
+
+    main>div {
+        
+        width: 430px;
+        
+    }
+
+}
+
+
+/* .imagen-bg {
+    background-image: url("../img/Screenshot_3.jpg");
+    width: 42%;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+} */
