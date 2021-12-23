@@ -48,7 +48,7 @@ checkbox.forEach(elemento => {
         if (!elemento.checked) {
             contador--
         } else if (contador >= 4) {
-            limpiarDivErrores()
+            limpiarListaErrores()
             event.preventDefault()
             console.log("No puede tildar mas de 4")
             errores.push("No se puede seleccionar mas de 4 hobbies.")
@@ -61,23 +61,24 @@ checkbox.forEach(elemento => {
     })
 })
 
-let divErrores = document.createElement("div")
-submit.appendChild(divErrores)
-divErrores.classList.add("divErrores")
+let listaErrores = document.createElement("ul")
+submit.appendChild(listaErrores)
+listaErrores.classList.add("listaErrores")
 
 function mostrarErrores() {
     
     errores.forEach((error) => {
 
-        let parrafoError = document.createElement("p")
+        let itemLista = document.createElement("li")
         let textoError = document.createTextNode(error)
-        parrafoError.style.color = "red"
-        parrafoError.appendChild(textoError)
-        divErrores.appendChild(parrafoError)
+        itemLista.style.color = "red"
+        itemLista.style.marginTop = "10px"
+        itemLista.appendChild(textoError)
+        listaErrores.appendChild(itemLista)
     })
 }
 
-function limpiarDivErrores(){
-    divErrores.innerHTML = ""
+function limpiarListaErrores(){
+    listaErrores.innerHTML = ""
     errores = []
 }
