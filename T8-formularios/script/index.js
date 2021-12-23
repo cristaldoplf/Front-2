@@ -19,7 +19,7 @@ submit.addEventListener('submit', function (event) {
     usuario.name = name;
     usuario.password = password;
     usuario.tel = tel;
-    
+
     checkbox.forEach((item) => {
 
         if (item.checked) {
@@ -39,19 +39,45 @@ submit.addEventListener('submit', function (event) {
 
 
 
-
+let errores = [];
 let contador = 0
 checkbox.forEach(elemento => {
+    
+    
     elemento.addEventListener("click", function (event) {
         if (!elemento.checked) {
             contador--
-            console.log(contador)
         } else if (contador >= 4) {
+            limpiarDivErrores()
             event.preventDefault()
             console.log("No puede tildar mas de 4")
+            errores.push("No se puede seleccionar mas de 4 hobbies.")
+            mostrarErrores()
         } else {
             contador++
-            console.log(contador)
         }
+        console.log(contador)
+
     })
 })
+
+let divErrores = document.createElement("div")
+submit.appendChild(divErrores)
+divErrores.classList.add("divErrores")
+
+function mostrarErrores() {
+    
+    errores.forEach((error) => {
+
+        let parrafoError = document.createElement("p")
+        let textoError = document.createTextNode(error)
+        parrafoError.style.color = "red"
+        parrafoError.appendChild(textoError)
+        divErrores.appendChild(parrafoError)
+    })
+}
+
+function limpiarDivErrores(){
+    divErrores.innerHTML = ""
+    errores = []
+}
