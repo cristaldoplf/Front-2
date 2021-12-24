@@ -127,10 +127,19 @@ input[type="checkbox"]:checked+label::before {
 }
 
 .botones {
-    margin: 40px 0px 60px;
+    margin: 40px 0px 10px;
     width: 100%;
     display: flex;
     justify-content: space-between;
+}
+
+ul {
+    max-width: 277px;
+}
+
+li {
+    margin-bottom: 10px;
+    text-align: left;
 }
 
 .botones input,
@@ -182,15 +191,16 @@ input[type="checkbox"]:checked+label::before {
     h1 {
         background-image: url("../img/Screenshot_3.jpg");
         width: 100%;
-        -webkit-text-stroke: 1px var(--white); /* width and color */
-        color: black; 
+        -webkit-text-stroke: 1px var(--white);
+        /* width and color */
+        color: black;
         font-size: 2.1rem;
     }
 
     main>div {
-        
+
         width: 430px;
-        
+
     }
 
 }
