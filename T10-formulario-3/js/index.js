@@ -2,7 +2,16 @@
 
 let form = document.querySelector("form")
 let divComentarios = document.querySelector(".comentarios")
-let commentHistory = []
+
+let historial = JSON.parse(localStorage.getItem("commentHistory"))
+let commentHistory
+
+if (historial.length < 1){
+    commentHistory = []
+}else{
+    commentHistory = historial
+}
+
 
 form.addEventListener("submit", function(event){
 
@@ -18,8 +27,8 @@ form.addEventListener("submit", function(event){
     /* guardamos el historial de comentarios en localStorage */
     commentHistory.push(comment)
     localStorage.setItem("commentHistory", JSON.stringify(commentHistory))
-    console.log(JSON.parse(localStorage.getItem("commentHistory")))
-
+    console.log(historial)
+    
 })
 
 
