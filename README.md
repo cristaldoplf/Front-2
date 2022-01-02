@@ -45,3 +45,7 @@ Limitamos la cantidad de checkboxes que pueden ser seleccionados.
 ## 9- Formularios 2.
 -  Realizamos validaciones del lado del cliente.
     - https://cristaldoplf.github.io/Front-2/T9-fromulario-2/
+
+## 10- Formularios 3.
+-  Renderizamos comentarios y guardamos el historial en localStorage.
+    - https://cristaldoplf.github.io/Front-2/T10-fromulario-3/
