@@ -1,17 +1,17 @@
 let mail = document.querySelector('#inputEmail');
 let pass = document.querySelector('#inputPassword');
+let form = document.querySelector('form')
 
-document.querySelector('form').addEventListener('submit', function(e) {
-    e.preventDefault();
 
-    let validMail = isValidMail();
-    let validPass = isValidPass();
+form.addEventListener('submit', function(event) {
+    event.preventDefault();
 
-    if (validMail && validPass) {
+    cleanErrors()
+
+    if (isValidMail() && isValidPass()) {
         location.href = "mis-tareas.html";
     } else {
-        // registar el error
-        console.log("Ingreso inválido");
+        showError();
         registerLoginAttempt(mail.value, pass.value);
     }
 });
@@ -22,14 +22,12 @@ function isValidMail() {
 }
 
 function isValidPass() {
-    return pass.value.length >= 8 && pass.value.length <= 12 &&
-        pass.value.includes('.');
+    return pass.value.length >= 8 && pass.value.length <= 20
 }
 
 let button = document.querySelector('button');
 
 mail.addEventListener('keyup', function() {
-    console.log('keyup');
     enableButton();
 });
 
@@ -61,4 +59,22 @@ function showLoginAttempts() {
 
 function showLoginAttemptsInJson() {
     console.log(JSON.stringify(loginAttempts));
+}
+
+let divErrors = document.createElement("div")
+form.appendChild(divErrors)
+
+function showError(){
+    
+    let p = document.createElement("p")
+    let textP = document.createTextNode("Ingreso Invalido")
+    p.appendChild(textP)
+    p.style.paddingTop = "10px"
+    p.style.color = "red"
+    divErrors.appendChild(p)
+}
+
+
+function cleanErrors(){
+    divErrors.innerHTML = ""
 }
