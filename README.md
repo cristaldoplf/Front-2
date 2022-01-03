@@ -49,3 +49,7 @@ Limitamos la cantidad de checkboxes que pueden ser seleccionados.
 ## 10- Formularios 3.
 -  Renderizamos comentarios y guardamos el historial en localStorage.
     - https://cristaldoplf.github.io/Front-2/T10-formulario-3/
+
+## 11- ToDo.
+-  Integramos todo lo anterior y agregamos interacciones con API.
+    - https://cristaldoplf.github.io/Front-2/T1-ToDo/
