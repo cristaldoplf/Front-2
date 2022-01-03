@@ -32,6 +32,7 @@ form.addEventListener('submit', function(event) {
 
     if (errors.length < 1) {
         alert("Registro Exitoso")
+        location.href = "index.html"
     }else{
         showError()
     }

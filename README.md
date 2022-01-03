@@ -50,6 +50,6 @@ Limitamos la cantidad de checkboxes que pueden ser seleccionados.
 -  Renderizamos comentarios y guardamos el historial en localStorage.
     - https://cristaldoplf.github.io/Front-2/T10-formulario-3/
 
-## 11- ToDo.
--  Integramos todo lo anterior y agregamos interacciones con API.
+## 11- ToDo - expresiones regulares.
+-  Usamos Expresiones Regulares para validar campos de un formulario.
     - https://cristaldoplf.github.io/Front-2/T1-ToDo/
