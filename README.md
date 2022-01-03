@@ -52,4 +52,4 @@ Limitamos la cantidad de checkboxes que pueden ser seleccionados.
 
 ## 11- ToDo - expresiones regulares.
 -  Usamos Expresiones Regulares para validar campos de un formulario.
-    - https://cristaldoplf.github.io/Front-2/T1-ToDo/
+    - https://cristaldoplf.github.io/Front-2/T11--ExpresionesRegulares/
