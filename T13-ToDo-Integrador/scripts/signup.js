@@ -7,10 +7,12 @@ let form = document.querySelector('form')
 
 let errors = []
 
-form.addEventListener('submit', function(event) {
+let jwt
+
+form.addEventListener('submit', function (event) {
     event.preventDefault();
 
-    
+
     cleanErrors()
 
     if (!isValidName(firstName.value)) {
@@ -31,19 +33,21 @@ form.addEventListener('submit', function(event) {
     }
 
     if (errors.length < 1) {
-        alert("Registro Exitoso")
-        location.href = "index.html"
-    }else{
+        register()
+
+        /* location.href = "index.html" */
+
+    } else {
         showError()
     }
-    
+
 
 });
 
-function isValidName(textToValid){
+function isValidName(textToValid) {
     /* between 2 and 30 characters, only space between words, only accept alphabet */
     let regex = new RegExp(/^[a-zA-Z ]{2,30}$/);
-    return regex.test(textToValid);   
+    return regex.test(textToValid);
 }
 
 function isValidMail() {
@@ -56,12 +60,10 @@ function isValidPass() {
     let regex = new RegExp(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/)
     let validPass1 = regex.test(password1.value)
     let validPass2 = regex.test(password2.value)
-    console.log(validPass1)
-    console.log(validPass2)
     return (validPass1 && validPass2)
 }
 
-function samePassword(){
+function samePassword() {
     return password1.value === password2.value
 }
 
@@ -69,8 +71,8 @@ function samePassword(){
 let ulErrors = document.createElement("ul")
 form.appendChild(ulErrors)
 
-function showError(){
-    
+function showError() {
+
     errors.forEach(element => {
         let li = document.createElement("li")
         let textLi = document.createTextNode(element)
@@ -82,7 +84,53 @@ function showError(){
 
 }
 
-function cleanErrors(){
+function cleanErrors() {
     ulErrors.innerHTML = ""
     errors = []
+}
+
+
+function register() {
+
+    let userData = {
+        firstName: firstName.value,
+        lastName: lastName.value,
+        email: mail.value,
+        password: password1.value
+    }
+
+    let urlRegister = "https://ctd-todo-api.herokuapp.com/v1/users"
+    fetch(urlRegister, {
+            method: "POST",
+            body: JSON.stringify(userData),
+            headers: {
+                "content-type": "application/json; chartset=UTF-8"
+            }
+        })
+        .then(response => {
+            if (response.status == 400) {
+                alert("El usuario ya se encuentra registrado o alguno de los datos requeridos esta incompleto")
+            } else if (response.status == 500) {
+                alert("Error del servidor, vuelva a intentarlo, si el error persiste intente mas tarde.")
+            } else {
+                return response.json()
+            }
+            
+        })
+        .then(data => {
+
+            if (data == undefined) {
+                return console.log("No se pudo generar un nuevo usuario")
+            } else {
+                console.log("Respuesta Api:", data);
+                console.log("Registro exitoso")
+                jwt = data.jwt
+                alert("Registro Exitoso")
+            }
+
+
+        })
+        .catch(error => {
+            console.log("Ocurrio un error al llamar a la API", error)
+        })
 }
