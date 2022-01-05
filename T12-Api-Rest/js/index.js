@@ -1,27 +1,42 @@
 // Aquí realizamos un la consulta de la promesa, esperando su respuesta asíncrona
-fetch('https://randomuser.me/api/')
-    .then(response => {
-        return response.json()
-    })
-    .then(data => {
-        //manipulamos la respuesta
-        console.log(data)
-    });
+document.querySelector("#random").addEventListener("click", function () {
+    fetch('https://randomuser.me/api/')
+        .then(response => {
+            return response.json()
+        })
+        .then(data => {
+            renderizarDatosUsuario(data.results[0])
+            console.log(data)
+
+        });
+})
+
 
 function renderizarDatosUsuario(datos) {
-    /* -------------------------------- CONSIGNA 1 -------------------------------- */
-    // Aquí deben desarrollar una función que muestre en pantalla:
-    // la foto, el nombre completo del usuario y su email.
-    // Esto debe estar basado en la info que nos llega desde la API e insertarse en el HTML.
-    
-    
-    
-    
-    
+
+    let tarjeta = document.querySelector(".tarjeta")
+    tarjeta.style.display = "flex"
+    tarjeta.style.flexDirection = "column"
+    tarjeta.style.justifyContent = "center"
+    tarjeta.style.alignItems = "center"
+
+    tarjeta.innerHTML =
+        `<img src="${datos.picture.large}" alt="Foto">
+    <p>${datos.name.title+" "+datos.name.first+" "+datos.name.last}</p>
+    <p>${datos.email}</p>`
+
+    // Preferi el innerHTML por que de elegir el comentado abajo, tendria que escribir mas codigo para evitar multiple renderizado y se hace mas confuso.
+    /* let img = document.createElement("img")
+    img.setAttribute("src", datos.picture.large )
+    tarjeta.appendChild(img)
+
+    let pNombre = document.createElement("p")
+    pNombre.innerHTML = datos.name.title+" "+datos.name.first+" "+datos.name.last
+    tarjeta.appendChild(pNombre)
+
+    let pMail = document.createElement("p")
+    pMail.innerText = datos.email
+    tarjeta.appendChild(pMail) */
+
+
 }
-
-
-/* --------------------------- CONSIGNA 2 (extra) --------------------------- */
-// Aqui pueden ir por el punto extra de utilizar el boton que se encuentra comentado en el HTML
-// Pueden descomentar el código del index.html y usar ese boton para ejecutar un nuevo pedido a la API, sin necesidad de recargar la página.
-// Es criterio del equipo QUÉ bloque del código debe contenerse dentro de una función para poder ser ejecutada cada vez que se escuche un click.
