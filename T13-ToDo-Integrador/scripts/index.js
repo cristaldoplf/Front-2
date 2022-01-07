@@ -3,17 +3,20 @@ let pass = document.querySelector('#inputPassword');
 let form = document.querySelector('form')
 
 
-form.addEventListener('submit', function(event) {
+form.addEventListener('submit', function (event) {
     event.preventDefault();
 
     cleanErrors()
 
     if (isValidMail() && isValidPass()) {
-        location.href = "mis-tareas.html";
+        login()
     } else {
-        showError();
+        showError("Ingreso Invalido");
         registerLoginAttempt(mail.value, pass.value);
     }
+
+
+
 });
 
 function isValidMail() {
@@ -22,16 +25,20 @@ function isValidMail() {
 }
 
 function isValidPass() {
-    return pass.value.length >= 8 && pass.value.length <= 20
+    let isValid = false
+    if (pass.value.length >= 8 && pass.value.length <= 20 && pass.value.trim().length > 0){
+        isValid = true
+    }
+    return isValid
 }
 
 let button = document.querySelector('button');
 
-mail.addEventListener('keyup', function() {
+mail.addEventListener('keyup', function () {
     enableButton();
 });
 
-pass.addEventListener('keyup', function() {
+pass.addEventListener('keyup', function () {
     enableButton();
 });
 
@@ -64,10 +71,10 @@ function showLoginAttemptsInJson() {
 let divErrors = document.createElement("div")
 form.appendChild(divErrors)
 
-function showError(){
-    
+function showError(info) {
+
     let p = document.createElement("p")
-    let textP = document.createTextNode("Ingreso Invalido")
+    let textP = document.createTextNode(info)
     p.appendChild(textP)
     p.style.paddingTop = "10px"
     p.style.color = "red"
@@ -75,6 +82,45 @@ function showError(){
 }
 
 
-function cleanErrors(){
+function cleanErrors() {
     divErrors.innerHTML = ""
 }
+
+
+function login() {
+    let urlLogin = "https://ctd-todo-api.herokuapp.com/v1/users/login"
+    let loginData = {
+        email: mail.value,
+        password: pass.value
+    }
+    fetch(urlLogin, {
+            method: "POST",
+            body: JSON.stringify(loginData),
+            headers: {
+                "Content-Type": "application/json; chartset=UTF-8"
+            }
+        })
+        .then(response => {
+            if (response.status == 400 || response.status == 404) {
+                showError("El usuario no existe o la contraseña no coincide.")
+            } else if (response.status == 500) {
+                showError("Se produjo un error, si el error persiste intente mas tarde.")
+            } else {
+                return response.json()
+            }
+
+        })
+        .then(data => {
+            if (data.jwt) {
+                sessionStorage.setItem("jwt", data.jwt)
+                console.log("localStorage", data.jwt)
+                console.log("saber si es true o false o que", sessionStorage.getItem("jwt"))
+                location.href = "mis-tareas.html"
+            }
+        })
+        .catch(error => {
+            console.log("Ocurrio un error al llamar a la API", error)
+        })
+}
+
+

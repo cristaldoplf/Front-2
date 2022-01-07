@@ -57,3 +57,7 @@ Limitamos la cantidad de checkboxes que pueden ser seleccionados.
 ## 12- Consumo de Api.
 -  Consumimos una Api y renderizamos la informacion.
     - https://cristaldoplf.github.io/Front-2/T12-Api-Rest/
+
+## 13- To do - Integrador.
+-  Integramos todo el contenido anterior, consumiendo una Api y creando un usuario.
+    - https://cristaldoplf.github.io/Front-2/T13-ToDo-Integrador/

@@ -35,8 +35,6 @@ form.addEventListener('submit', function (event) {
     if (errors.length < 1) {
         register()
 
-        /* location.href = "index.html" */
-
     } else {
         showError()
     }
@@ -104,7 +102,7 @@ function register() {
             method: "POST",
             body: JSON.stringify(userData),
             headers: {
-                "content-type": "application/json; chartset=UTF-8"
+                "Content-Type": "application/json; chartset=UTF-8"
             }
         })
         .then(response => {
@@ -115,17 +113,16 @@ function register() {
             } else {
                 return response.json()
             }
-            
+
         })
         .then(data => {
-
-            if (data == undefined) {
-                return console.log("No se pudo generar un nuevo usuario")
+            if (data.jwt) {
+                sessionStorage.setItem("jwt",data.jwt)
+                console.log("localStorage", data.jwt)
+                console.log("saber si es true o false o que",sessionStorage.getItem("jwt"))
+                location.href = "mis-tareas.html"
             } else {
-                console.log("Respuesta Api:", data);
-                console.log("Registro exitoso")
-                jwt = data.jwt
-                alert("Registro Exitoso")
+                alert("No se pudo generar un nuevo usuario")
             }
 
 
