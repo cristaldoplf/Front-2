@@ -1,4 +1,3 @@
-
 let datosPersona = {
   nombre: "",
   edad: 0,
