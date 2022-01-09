@@ -1,4 +1,9 @@
 @import url('./common.css');
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 header {
   display: flex;
   background: linear-gradient(90deg, var(--primary), var(--secondary));
@@ -130,16 +135,22 @@ a {
   position: relative;
   height: 1.5em;
   width: 1.5em;
-  background-color: white;
+  
   box-shadow: 2px 2px 5px lightgrey;
   border: 2px solid var(--secondary);
   z-index: 2;
   transition: background-color 200ms linear;
 }
 
-.tarea .not-done:hover {
-  background-color: var(--secondary);
+.taskDone{
+  background-color: rgb(10, 199, 10);
 }
+
+.tarea .not-done:hover {
+  background-color: red;
+}
+
+
 
 .tarea:first-child .not-done::before {
   content: '';
@@ -175,6 +186,7 @@ a {
 
 .tarea .nombre {
   color: rgb(95, 95, 95);
+  max-width: 756px;
 }
 
 .tarea .timestamp {
