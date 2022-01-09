@@ -59,5 +59,5 @@ Limitamos la cantidad de checkboxes que pueden ser seleccionados.
     - https://cristaldoplf.github.io/Front-2/T12-Api-Rest/
 
 ## 13- To do - Integrador.
--  Integramos todo el contenido anterior, consumiendo una Api y creando un usuario, armando un login y tareas haciendo diferentes consultas.
+-  Integramos todo el contenido anterior, consumiendo una Api y creando un usuario, armando un login y tareas haciendo diferentes consultas GET, POST, DELETE.
     - https://cristaldoplf.github.io/Front-2/T13-ToDo-Integrador/
