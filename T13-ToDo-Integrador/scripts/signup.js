@@ -8,7 +8,7 @@ window.onload = function () {
     const form = document.querySelector('form')
 
     let errors = []
-    let jwt
+    
 
     form.addEventListener('submit', function (event) {
         event.preventDefault();
@@ -121,7 +121,7 @@ window.onload = function () {
                     sessionStorage.setItem("jwt", data.jwt)
                     console.log("localStorage", data.jwt)
                     console.log("saber si es true o false o que", sessionStorage.getItem("jwt"))
-                    location.href = "mis-tareas.html"
+                    location.href = "index.html"
                 } else {
                     alert("No se pudo generar un nuevo usuario")
                 }
